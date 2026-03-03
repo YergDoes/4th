@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Control Structures Practice</title>
+
+</head>
+<body>
+    <h1>JavaScript Control Structures Practice</h1>
+
+    <div class="problem">
+        <h2>1. School Event Entry Check</h2>
+        <button onclick="problem1()">Run</button>
+        <div id="output1"></div>
+    </div>
+
+    <div class="problem">
+        <h2>2. Jeepney Fare Discount</h2>
+        <button onclick="problem2()">Run</button>
+        <div id="output2"></div>
+    </div>
+
+    <div class="problem">
+        <h2>3.Quiz Grade Evaluator</h2>
+        <button onclick="problem3()">Run</button>
+        <div id="output3"></div>
+    </div>
+
+    <div class="problem">
+        <h2>4. Data Promo Selector</h2>
+        <button onclick="problem4()">Run</button>
+        <div id="output4"></div>
+    </div>
+
+    <div class="problem">
+        <h2>5. Vowel Counter in Your Name</h2>
+        <button onclick="problem5()">Run</button>
+        <div id="output5"></div>
+    </div>
+
+    <div class="problem">
+        <h2>6.sername Validator</h2>
+        <button onclick="problem6()">Run</button>
+        <div id="output6"></div>
+    </div>
+
+    <div class="problem">
+        <h2>7.cure Login System</h2>
+        <button onclick="problem7()">Run</button>
+        <div id="output7"></div>
+    </div>
+
+    <script>
+        function problem1() {
+            let answer = prompt("Are you wearing your school ID? (yes/no)");
+            let result = "";
+            if (answer.toLowerCase() === "yes") {
+                result = "Welcome to the event!";
+            }
+            document.getElementById("output1").innerHTML = result;
+        }
+
+        function problem2() {
+            let student = prompt("Are you a student? (yes/no)");
+            let senior = prompt("Are you a senior citizen? (yes/no)");
+            let result = "";
+            if (student.toLowerCase() === "yes" || senior.toLowerCase() === "yes") {
+                result = "You get a discounted fare.";
+            } else {
+                result = "You will pay the regular fare.";
+            }
+            document.getElementById("output2").innerHTML = result;
+        }
+
+        function problem3() {
+            let score = Number(prompt("Enter your quiz score (0-100):"));
+            let result = "";
+            if (score < 0 || score > 100) {
+                result = "Invalid score";
+            } else if (score >= 90) {
+                result = "Excellent";
+            } else if (score >= 75) {
+                result = "Good job";
+            } else if (score >= 60) {
+                result = "You passed";
+            } else {
+                result = "You need to review";
+            }
+            document.getElementById("output3").innerHTML = result;
+        }
+
+        function problem4() {
+            let choice = prompt("Choose a promo (A, B, or C):").toUpperCase();
+            let result = "";
+            switch(choice) {
+                case "A":
+                    result = "1GB for 1 day";
+                    break;
+                case "B":
+                    result = "5GB for 7 days";
+                    break;
+                case "C":
+                    result = "10GB for 30 days";
+                    break;
+                default:
+                    result = "Invalid choice";
+            }
+            document.getElementById("output4").innerHTML = result;
+        }
+
+        function problem5() {
+            let name = prompt("Enter your full name:").toLowerCase();
+            let vowels = 0;
+            for (let i = 0; i < name.length; i++) {
+                if (name[i] === "a" || name[i] === "e" || name[i] === "i" || name[i] === "o" || name[i] === "u") {
+                    vowels++;
+                }
+            }
+            document.getElementById("output5").innerHTML = "Your name contains " + vowels + " vowels.";
+        }
+
+        function problem6() {
+            let username = prompt("Enter a username:");
+            let hasSpace = false;
+            for (let i = 0; i < username.length; i++) {
+                if (username[i] === " ") {
+                    hasSpace = true;
+                    break;
+                }
+            }
+            let result = "";
+            if (hasSpace) {
+                result = "Username must not contain spaces.";
+            } else if (username.length < 6) {
+                result = "Username must be at least 6 characters.";
+            } else {
+                result = "Valid username.";
+            }
+            document.getElementById("output6").innerHTML = result;
+        }
+
+        function problem7() {
+            let attempts = 0;
+            let result = "";
+            while (attempts < 3) {
+                let password = prompt("Enter password (Attempt " + (attempts + 1) + "/3):");
+                if (password === "Grade9JS") {
+                    result = "Login successful.";
+                    break;
+                }
+                attempts++;
+            }
+            if (attempts === 3) {
+                result = "Account locked.";
+            }
+            document.getElementById("output7").innerHTML = result;
+        }
+    </script>
+</body>
+</html>
